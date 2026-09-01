@@ -78,61 +78,59 @@ a:hover {
   </div>
   <div class="tbody">
     <a href="..\..\..\IAP_UART\HT32_APPFW_1xxxx_IAP_UART_V1.20.1_3609.zip" class="tr" id="download-linkF1">
-      <span class="td">HT32 Application Firmware - IAP_UART (HT32F1xxxx, M3)</span> <span class="td">
+      <span class="td">IAP_UART (HT32F1xxxx, M3)</span> <span class="td">
       <figure><img src="https://www.holtek.com/WebAPI/fl26790990/Download_all.svg" /></figure>
       </span>
     </a> 
     <a href="..\..\..\IAP_UART\HT32_APPFW_5xxxx_IAP_UART_V1.20.1_9786.zip" class="tr" id="download-linkF5">
-      <span class="td">HT32 Application Firmware - IAP_UART (HT32F5xxxx, M0+)</span> <span class="td">
+      <span class="td">IAP_UART (HT32F5xxxx, M0+)</span> <span class="td">
       <figure><img src="https://www.holtek.com/WebAPI/fl26790990/Download_all.svg" /></figure>
       </span>
     </a>
     <a href="..\..\..\IAP_UART\HT32_APPFW_L5xxxx_IAP_UART_V1.20.1_1266.zip" class="tr" id="download-linkL5">
-      <span class="td">HT32 Application Firmware - IAP_UART (HT32L5xxxx, M0+)</span> <span class="td">
+      <span class="td">IAP_UART (HT32L5xxxx, M0+)</span> <span class="td">
       <figure><img src="https://www.holtek.com/WebAPI/fl26790990/Download_all.svg" /></figure>
       </span>
     </a>
     <a href="..\..\..\IAP_UART\HT32_APPFW_49xxx_IAP_UART_V1.19.1_753.zip" class="tr" id="download-linkF49">
-      <span class="td">HT32 Application Firmware - IAP_UART (HT32F49xxx, M4)</span> <span class="td">
+      <span class="td">IAP_UART (HT32F49xxx, M4)</span> <span class="td">
       <figure><img src="https://www.holtek.com/WebAPI/fl26790990/Download_all.svg" /></figure>
       </span>
-    </a>    
+    </a>
   </div>
 </div>
 <!-- Global site tag (gtag.js) - Google Analytics --> 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GBVTFSKWWB"></script> 
 <script>
-  document.getElementById('download-linkF1').addEventListener('click', function(event) {
-      gtag('event', 'file_download', {
-        'file_name': 'HT32_APPFW_1xxxx_IAP_UART_Vm.n.r_s.zip','link_url': this.href
-      });
-      console.log("Download event sent, opening GitHub in a new window...");
-  });
-  document.getElementById('download-linkF5').addEventListener('click', function(event) {
-      gtag('event', 'file_download', {
-        'file_name': 'HT32_APPFW_5xxxx_IAP_UART_Vm.n.r_s.zip','link_url': this.href
-      });
-      console.log("Download event sent, opening GitHub in a new window...");
-  });
-  document.getElementById('download-linkL5').addEventListener('click', function(event) {
-      gtag('event', 'file_download', {
-        'file_name': 'HT32_APPFW_L5xxxx_IAP_UART_Vm.n.r_s.zip','link_url': this.href
-      });
-      console.log("Download event sent, opening GitHub in a new window...");
-  });
-  document.getElementById('download-linkF49').addEventListener('click', function(event) {
-      gtag('event', 'file_download', {
-        'file_name': 'HT32_APPFW_49xxx_IAP_UART_Vm.n.r_s.zip','link_url': this.href
-      });
-      console.log("Download event sent, opening GitHub in a new window...");
-  });
   window.dataLayer = window.dataLayer || [];
   function gtag() {
     dataLayer.push(arguments);
   }
   gtag("js", new Date());
-
   gtag("config", "G-GBVTFSKWWB");
+
+  // 定義主題變數（例如：IAP_Virtual_COM, IAP_UART 等）
+  const moduleName = 'IAP_UART';
+
+  // 封裝通用的下載事件綁定函式
+  function bindDownloadEvent(elementId, filePrefix) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+
+    element.addEventListener('click', function(event) {
+      gtag('event', 'file_download', {
+        'file_name': `HT32_APPFW_${filePrefix}_${moduleName}_Vm.n.r_s.zip`,
+        'link_url': this.href
+      });
+      console.log("Download event sent, opening GitHub in a new window...");
+    });
+  }
+
+  // 傳入元素 ID 與對應的檔案前綴即可
+  bindDownloadEvent('download-linkF1', '1xxxx');
+  bindDownloadEvent('download-linkF5', '5xxxx');
+  bindDownloadEvent('download-linkL5', 'L5xxxx');
+  bindDownloadEvent('download-linkF49', '49xxx');
 </script>
 </body>
 <!--<script type="text/javascript" src="//counter.websiteout.net/js/7/0/0/0"></script>-->
