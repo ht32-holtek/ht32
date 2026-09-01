@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HT32 Application Firmware - __APP_NAME__</title>
+<style type="text/css">
+body {
+    margin: 0;
+    padding: 1rem 2rem;
+}
+body * {
+    font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+}
+h2 {
+    text-align: center;
+    color: #016ba7;
+}
+.table {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
+}
+.thead {
+    background: #d8e5e98f;
+    color: #666;
+}
+.tr {
+    display: flex;
+    align-items: center;
+}
+.td {
+    padding: 0.65rem .8rem;
+}
+.td:first-child {
+    width: 85%;
+}
+.td:last-child {
+    width: 15%;
+}
+.thead .tr {
+    border-bottom: 1px solid #016ba7;
+}
+.tbody .tr {
+    border-bottom: 1px solid #ccc;
+}
+a {
+    color: #016ba7;
+    text-decoration: none;
+    line-height: 1.5;
+}
+a:hover {
+    background: #d8e5e9;
+}
+.td > figure {
+    margin: 0 auto;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: #016ba7;
+    padding: 0.5rem;
+}
+.td > figure > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+</style>
+</head>
+
+<body class="font">
+<h2>HT32 Application Firmware Download</h2>
+<div class="table">
+  <div class="thead">
+    <div class="tr">
+      <div class="td">Name</div>
+      <div class="td">&nbsp;</div>
+    </div>
+  </div>
+  <div class="tbody">
+
+    <a href="..\..\..\__APP_NAME__\HT32_APPFW_1xxxx___APP_NAME___V__VERSON_STR__.zip" class="tr" id="download-linkF1">
+      <span class="td">__APP_NAME__ (HT32F1xxxx, M3)</span> <span class="td">
+      <figure><img src="https://www.holtek.com/WebAPI/fl26790990/Download_all.svg" /></figure>
+      </span>
+    </a>
+
+    <a href="..\..\..\__APP_NAME__\HT32_APPFW_4xxxx___APP_NAME___V__VERSON_STR__.zip" class="tr" id="download-linkF4">
+      <span class="td">__APP_NAME__ (HT32F4xxxx, M4)</span> <span class="td">
+      <figure><img src="https://www.holtek.com/WebAPI/fl26790990/Download_all.svg" /></figure>
+      </span>
+    </a>
+
+    <a href="..\..\..\__APP_NAME__\HT32_APPFW_49xxx___APP_NAME___V__VERSON_STR__.zip" class="tr" id="download-linkF49">
+      <span class="td">__APP_NAME__ (HT32F49xxx, M4)</span> <span class="td">
+      <figure><img src="https://www.holtek.com/WebAPI/fl26790990/Download_all.svg" /></figure>
+      </span>
+    </a>
+
+    <a href="..\..\..\__APP_NAME__\HT32_APPFW_5xxxx___APP_NAME___V__VERSON_STR__.zip" class="tr" id="download-linkF5">
+      <span class="td">__APP_NAME__ (HT32F5xxxx, M0+)</span> <span class="td">
+      <figure><img src="https://www.holtek.com/WebAPI/fl26790990/Download_all.svg" /></figure>
+      </span>
+    </a>
+
+    <a href="..\..\..\__APP_NAME__\HT32_APPFW_7xxxx___APP_NAME___V__VERSON_STR__.zip" class="tr" id="download-linkF7">
+      <span class="td">__APP_NAME__ (HT32F7xxxx, M0+)</span> <span class="td">
+      <figure><img src="https://www.holtek.com/WebAPI/fl26790990/Download_all.svg" /></figure>
+      </span>
+    </a>
+
+    <a href="..\..\..\__APP_NAME__\HT32_APPFW_L5xxxx___APP_NAME___V__VERSON_STR__.zip" class="tr" id="download-linkL5">
+      <span class="td">__APP_NAME__ (HT32L5xxxx, M0+)</span> <span class="td">
+      <figure><img src="https://www.holtek.com/WebAPI/fl26790990/Download_all.svg" /></figure>
+      </span>
+    </a>
+
+  </div>
+</div>
+<!-- Global site tag (gtag.js) - Google Analytics --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GBVTFSKWWB"></script> 
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "G-GBVTFSKWWB");
+
+  // 定義主題變數（例如：IAP_Virtual_COM, IAP_UART 等）
+  const moduleName = '__APP_NAME__';
+
+  // 封裝通用的下載事件綁定函式
+  function bindDownloadEvent(elementId, filePrefix) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+
+    element.addEventListener('click', function(event) {
+      gtag('event', 'file_download', {
+        'file_name': `HT32_APPFW_${filePrefix}_${moduleName}_Vm.n.r_s.zip`,
+        'link_url': this.href
+      });
+      console.log("Download event sent, opening GitHub in a new window...");
+    });
+  }
+
+  // 傳入元素 ID 與對應的檔案前綴即可
+  bindDownloadEvent('download-linkF1', '1xxxx');
+  bindDownloadEvent('download-linkF4', '4xxxx');
+  bindDownloadEvent('download-linkF49', '49xxx');
+  bindDownloadEvent('download-linkF5', '5xxxx');
+  bindDownloadEvent('download-linkF7', '7xxxx');
+  bindDownloadEvent('download-linkL5', 'L5xxxx');
+</script>
+</body>
+<!--<script type="text/javascript" src="//counter.websiteout.net/js/7/0/0/0"></script>-->
+</html>
